@@ -1,13 +1,21 @@
 type User {
-    id: Int!
+    id: ID!
     name: String!
     age: Int!
 }
 
+type Post {
+    id: ID!
+    title: String!
+    user: User!
+}
+
 type Query {
     findAllUsers: [User]
+    findAllPosts: [Post]
 }
 
 type Mutation {
     createUser(name: String!, age: Int!): User!
+    createPost(title: String!, user: ID!): Post!
 }
